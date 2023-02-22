@@ -2,8 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header';
 import Sinhvien from './components/Sinhvien';
-import FormEvent from './components/FormEvent';
+import FormEvent from './components/FormChange';
 import FormClick from './components/FormClick';
+import ListData from './components/ListData';
 
 
 // them danh sach sinh vien
@@ -12,8 +13,9 @@ function App() {
     <div className="App">
       {/* <Header/>
       <Sinhvien/> */}
-     {/* <FormEvent/> */}
-     <FormClick />
+      {/* <FormChange /> */}
+     {/* <FormClick /> */}
+     <ListData />
     </div>
   );
 }
