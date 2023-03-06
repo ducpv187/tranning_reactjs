@@ -3,23 +3,22 @@ import React, { useState } from 'react'
 export default function FormClick() {
 
     const [menu, setMenu] = useState([
-      {
+    {
         id: 1,
         name: "Tab 1 ",
         link: "/home",
-      },
-      {
+    },
+    {
         id: 2,
         name: "Tab 2 ",
         link: "/qc",
-      },
-      {
+    },
+    {
         id: 3,
         name: "Tabv 3 ",
         link: "/st",
-      },
+    },
     ]);
-
     const listContent = [
       { id: 1, content: "THang" },
       { id: 2, content: "Duc" },
