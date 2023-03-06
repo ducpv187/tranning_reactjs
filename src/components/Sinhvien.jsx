@@ -2,6 +2,7 @@ import { useState } from "react"
 
 export default function Sinhvien() {
     const [danhsach , setDanhsach] = useState([1]);
+    // console.log(typeof setDanhsach);
     // const  clickTang = () => {
         
     //     setDanhsach(  

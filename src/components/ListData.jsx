@@ -7,6 +7,7 @@ export default function ListData() {
 
   //b2: get value -> setvalue state
   const [value, setValue] = useState();
+  console.log(value);
   const onChangeValueInput = (e) => {
     setValue(e.target.value);    
     console.log(e);
@@ -15,7 +16,10 @@ export default function ListData() {
 
   //b3: tao event click 
   const clickAddData = () => {
-    setData((prevValue) => [...prevValue , value]);
+    setData( (prevValue) => [...prevValue , value]);
+    // setData( function(prevValue){
+    //   return [...prevValue,value]
+    // })
 
     // const newData = data.push(value);
     // setData( newData) ;
@@ -32,14 +36,12 @@ export default function ListData() {
       <div>
         <div>
           Them phan tu : <input onChange={onChangeValueInput} />
-          <button style={{ marginLeft: "10px" }}
-          onClick={clickAddData}
-          >
+          <button style={{ marginLeft: "10px" }} onClick={clickAddData}>
             Them
-        </button>
+          </button>
         </div>
         <div>danh sach</div>
-      {/* //b1: render mang data ra màn hình  */}
+        {/* //b1: render mang data ra màn hình  */}
         <div>
             {
             data.map( item => (<div>{item}</div>))

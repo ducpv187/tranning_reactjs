@@ -4,7 +4,7 @@ export default function FormEvent() {
   const [valueForm, setValueForm] = useState({});
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("You clicked submit.", e);
+    console.log("You clicked submit.", valueForm);
     // ddaary len du lieu form len server
   }
 
@@ -13,7 +13,9 @@ export default function FormEvent() {
     const name = event.target.name;
     const input = { [name]: value };
 
-    const dulieuchualuu = { ...valueForm, ...input };
+    console.log( { [name]: value });
+    console.log(typeof input);
+    // const dulieuchualuu = { ...valueForm, ...input };
     // cach 1 : setValueForm(dulieuchualuu)
     setValueForm((prevValue) => ({ ...prevValue, [name]: value }));
   };
