@@ -41,9 +41,9 @@ export default function ListData() {
         <div>danh sach</div>
       {/* //b1: render mang data ra màn hình  */}
         <div>
-            {data.map((item)=> (
-                <div>{item}</div>
-            ))}
+            {
+            data.map( item => (<div>{item}</div>))
+            }
         </div>
       </div>
     </div>
