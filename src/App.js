@@ -7,6 +7,7 @@ import FormClick from './components/FormClick';
 import FormChange from './components/FormChange';
 
 import ListData from './components/ListData';
+import CrudSite from './components/CrudSite';
 
 
 // them danh sach sinh vien
@@ -17,7 +18,8 @@ function App() {
       {/* <Sinhvien/> */}
       <FormChange />
      {/* <FormClick /> */}
-     {/* <ListData /> */}
+     <ListData />
+     {/* <CrudSite /> */}
     </div>
   );
 }

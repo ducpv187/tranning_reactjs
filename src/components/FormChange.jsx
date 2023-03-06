@@ -15,7 +15,7 @@ export default function FormEvent() {
 
     console.log( { [name]: value });
     console.log(typeof input);
-    const dulieuchualuu = { ...valueForm, ...input };
+    // const dulieuchualuu = { ...valueForm, ...input };
     // cach 1 : setValueForm(dulieuchualuu)
     setValueForm((prevValue) => ({ ...prevValue, [name]: value }));
   };
