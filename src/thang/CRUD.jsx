@@ -7,17 +7,40 @@ export default function CRUD() {
   console.log(input);
   // thêm 1 object khi click :  {id: random ,   name: Nhập  ,  price: random}
   const onClickItem = () => {
-    if (!input) {
-      return;
-    }
-    const obj = {
-      id: Math.random() * 325235,
-      price: Math.random(),
-      name: input,
-    };
+    //check ô input ko có gia trị thì return về  div rỗng ( tránh case ko có data input mà cứ add data rỗng -> render ra màn hình)
+    //javascipts: logic sẽ chạy từ trên xuống 
 
-    setData((data) => [...data, obj]);
-    setInput("");
+
+    //cach 1:
+    //+)b1: n kiểm tra input có data hay ko ?
+    // if (!input) {
+    //   return;
+    // }
+    // //+)b2: sau khi  logic chạy hết b1 nếu có data -> b2 else nếu ko thì dừng lại return ra mãng rỗng
+    // const obj = {
+    //   id: Math.random() * 325235,
+    //   price: Math.random(),
+    //   name: input,
+    // };
+    // //+)b3: set usestate vào data mới 
+    // setData((data) => [...data, obj]);
+
+    // //+)b4: mỗi lần click xong thì xóa data ô vừa nhập về trạng thái rỗng
+    // setInput("");
+
+    //cach 2:
+    if(input) {
+      const obj = {
+        id: Math.random() * 325235,
+        price: Math.random(),
+        name: input,
+      };
+      setData((data) => [...data, obj]);
+      setInput("");
+    }
+    else {
+      return;
+    }   
   };
 
   // click
