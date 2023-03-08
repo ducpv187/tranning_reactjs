@@ -7,10 +7,13 @@ const setLocalStorageData = (data) => {
   localStorage.setItem("key-data", JSON.stringify(data));
 };
 
+const getDataServerOrLocal = () => {
+  // call api lay du lieu database
+  return JSON.parse(localStorage.getItem("key-data"));
+};
+
 export default function CRUD() {
-  const [data, setData] = useState(
-    JSON.parse(localStorage.getItem("key-data")) || []
-  );
+  const [data, setData] = useState(getDataServerOrLocal() || []);
 
   const [input, setInput] = useState("");
   console.log(input);
