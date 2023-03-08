@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import { ListData } from "./ListData";
+import { SectionEdit } from "./SectionEdit";
+
+const setLocalStorageData = (data) => {
+  //  '[{}]'
+  localStorage.setItem("key-data", JSON.stringify(data));
+};
 
 export default function CRUD() {
-  const [data, setData] = useState([{ id: 1, name: "Mi`", price: 1000 }]);
+  const [data, setData] = useState(
+    JSON.parse(localStorage.getItem("key-data")) || []
+  );
 
-  const [input, setInput] = useState("3523523");
+  const [input, setInput] = useState("");
   console.log(input);
   // thêm 1 object khi click :  {id: random ,   name: Nhập  ,  price: random}
   const onClickItem = () => {
@@ -17,6 +26,7 @@ export default function CRUD() {
     };
 
     setData((data) => [...data, obj]);
+    setLocalStorageData([...data, obj]);
     setInput("");
   };
 
@@ -44,7 +54,7 @@ export default function CRUD() {
   const onClickEdit = () => {
     const newData = data.map((item) => {
       // nếu item cũ có id trùng với id edit thì đổi gia trị ,  nếu không trùng thì giữ nguyên
-      if (item.id !== itemEdit.id) {
+      if (item.id !== itemEdit?.id) {
         return item;
       }
 
@@ -53,6 +63,7 @@ export default function CRUD() {
     });
 
     setData(newData);
+    setLocalStorageData(newData);
   };
 
   // [1, ,2 , 3].filter(item=> (item!==2) -> true )
@@ -64,6 +75,20 @@ export default function CRUD() {
       }
       return false;
     });
+    //  [ {id: 1} , {id:2  } , {id:3}]      -           itemclickdelete : {id:2}
+
+    // mảng mới = filter |
+    // b1:  {id:1} so voi itemClick khong trung -> true  -> giữ lại vào mảng mới
+    // b2  {id :2 } so voi itemClick  Trung ->  false     -> cút
+    // b3:  {id:3} so voi itemClick khong trung -> true  -> giữ lại vào mảng mới
+    // kết lại : mảng mới gồm id 1, id3
+
+    // let newData1 = [];
+    // data.forEach(item => {
+    //   if (item.id !== itemClick.id) {
+    //     return newData1.push(item);
+    //   }
+    // });
 
     setData(newData);
   };
@@ -78,38 +103,17 @@ export default function CRUD() {
           <button onClick={onClickItem}> Enter them</button>
         </div>
         <h3>List data</h3>
-        <div>
-          {data.map((item) => (
-            <div
-              key={item.id}
-              style={{ background: "orange", marginBottom: "20px" }}
-            >
-              <div>gia tien : {item.price}</div>
-              <div>Ten sp : {item.name}</div>
-              <button onClick={() => onClickICONSua(item)}>ICON sửa</button>
-
-              <button
-                onClick={() => onDeleteItem(item)}
-                style={{ marginLeft: "20px" }}
-              >
-                Xóa thằng này de
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <h1> Sua phan tu </h1>
-        <input
-          name="name"
-          onChange={onChangeEdit}
-          defaultValue={itemEdit?.name}
+        <ListData
+          data={data}
+          onClickEdit={onClickICONSua}
+          onClickDelete={onDeleteItem}
         />
-        <input
-          name="price"
-          onChange={onChangeEdit}
-          defaultValue={itemEdit?.price}
+
+        <SectionEdit
+          onChangeEdit={onChangeEdit}
+          itemEdit={itemEdit}
+          onClickEdit={onClickEdit}
         />
-        <button onClick={onClickEdit}> OK sửa</button>
       </div>
     </div>
   );
