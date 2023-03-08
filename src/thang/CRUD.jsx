@@ -91,6 +91,7 @@ export default function CRUD() {
     // });
 
     setData(newData);
+    setLocalStorageData(newData);
   };
 
   console.log("inputEdit", inputEdit);
