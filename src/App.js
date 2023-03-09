@@ -21,7 +21,7 @@ function App() {
       {/* <ListData /> */}
       {/* <AddItems />     */}
       <AddItemCrud />
-      {/* <CRUD /> */}
+      <CRUD />
     </div>
   );
 }

@@ -1,46 +1,36 @@
 import React, { useState } from "react";
+import { ListData } from "./ListData";
+import { SectionEdit } from "./SectionEdit";
+
+const setLocalStorageData = (data) => {
+  //  '[{}]'
+  localStorage.setItem("key-data", JSON.stringify(data));
+};
+
+const getDataServerOrLocal = () => {
+  // call api lay du lieu database
+  return JSON.parse(localStorage.getItem("key-data"));
+};
 
 export default function CRUD() {
-  const [data, setData] = useState([{ id: 1, name: "Mi`", price: 1000 }]);
+  const [data, setData] = useState(getDataServerOrLocal() || []);
 
-  const [input, setInput] = useState("1a");
+  const [input, setInput] = useState("");
   console.log(input);
   // thêm 1 object khi click :  {id: random ,   name: Nhập  ,  price: random}
   const onClickItem = () => {
-    //check ô input ko có gia trị thì return về  div rỗng ( tránh case ko có data input mà cứ add data rỗng -> render ra màn hình)
-    //javascipts: logic sẽ chạy từ trên xuống 
-
-
-    //cach 1:
-    //+)b1: n kiểm tra input có data hay ko ?
-    // if (!input) {
-    //   return;
-    // }
-    // //+)b2: sau khi  logic chạy hết b1 nếu có data -> b2 else nếu ko thì dừng lại return ra mãng rỗng
-    // const obj = {
-    //   id: Math.random() * 325235,
-    //   price: Math.random(),
-    //   name: input,
-    // };
-    // //+)b3: set usestate vào data mới 
-    // setData((data) => [...data, obj]);
-
-    // //+)b4: mỗi lần click xong thì xóa data ô vừa nhập về trạng thái rỗng
-    // setInput("");
-
-    //cach 2:
-    if(input) {
-      const obj = {
-        id: Math.random() * 325235,
-        price: Math.random(),
-        name: input,
-      };
-      setData((data) => [...data, obj]);
-      setInput("");
-    }
-    else {
+    if (!input) {
       return;
-    }   
+    }
+    const obj = {
+      id: Math.random() * 325235,
+      price: Math.random(),
+      name: input,
+    };
+
+    setData((data) => [...data, obj]);
+    setLocalStorageData([...data, obj]);
+    setInput("");
   };
 
   // click
@@ -67,7 +57,7 @@ export default function CRUD() {
   const onClickEdit = () => {
     const newData = data.map((item) => {
       // nếu item cũ có id trùng với id edit thì đổi gia trị ,  nếu không trùng thì giữ nguyên
-      if (item.id !== itemEdit.id) {
+      if (item.id !== itemEdit?.id) {
         return item;
       }
 
@@ -76,6 +66,7 @@ export default function CRUD() {
     });
 
     setData(newData);
+    setLocalStorageData(newData);
   };
 
   // [1, ,2 , 3].filter(item=> (item!==2) -> true )
@@ -89,8 +80,23 @@ export default function CRUD() {
       }
       return false;
     });
+    //  [ {id: 1} , {id:2  } , {id:3}]      -           itemclickdelete : {id:2}
+
+    // mảng mới = filter |
+    // b1:  {id:1} so voi itemClick khong trung -> true  -> giữ lại vào mảng mới
+    // b2  {id :2 } so voi itemClick  Trung ->  false     -> cút
+    // b3:  {id:3} so voi itemClick khong trung -> true  -> giữ lại vào mảng mới
+    // kết lại : mảng mới gồm id 1, id3
+
+    // let newData1 = [];
+    // data.forEach(item => {
+    //   if (item.id !== itemClick.id) {
+    //     return newData1.push(item);
+    //   }
+    // });
 
     setData(newData);
+    setLocalStorageData(newData);
   };
 
   console.log("inputEdit", inputEdit);
@@ -103,38 +109,17 @@ export default function CRUD() {
           <button onClick={onClickItem}> Enter them</button>
         </div>
         <h3>List data</h3>
-        <div>
-          {data.map((item) => (
-            <div
-              key={item.id}
-              style={{ background: "white", marginBottom: "20px" }}
-            >
-              <div>gia tien : {item.price}</div>
-              <div>Ten sp : {item.name}</div>
-              <button onClick={() => onClickICONSua(item)}>ICON sửa</button>
-
-              <button
-                onClick={() => onDeleteItem(item)}
-                style={{ marginLeft: "20px" }}
-              >
-                Xóa thằng này de
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <h1> Sua phan tu </h1>
-        <input
-          name="name"
-          onChange={onChangeEdit}
-          defaultValue={itemEdit?.name}
+        <ListData
+          data={data}
+          onClickEdit={onClickICONSua}
+          onClickDelete={onDeleteItem}
         />
-        <input
-          name="price"
-          onChange={onChangeEdit}
-          defaultValue={itemEdit?.price}
+
+        <SectionEdit
+          onChangeEdit={onChangeEdit}
+          itemEdit={itemEdit}
+          onClickEdit={onClickEdit}
         />
-        <button onClick={onClickEdit}> OK sửa</button>
       </div>
     </div>
   );
