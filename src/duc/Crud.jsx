@@ -11,6 +11,7 @@ export default function Crud() {
   const handleCLickAddValueItem = (value) => {
     console.log(value);
     setData((prevData) => {
+        console.log(prevData);
       return [...prevData, value];
     });
   };

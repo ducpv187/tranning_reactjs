@@ -2,11 +2,12 @@ import React, { useState } from "react";
 
 
 
-export default function AddItem(props) {
+export default function AddItem(props) {    
   const [valueInput, setValueInput] = useState();
-  console.log(valueInput);
+//   console.log(valueInput);
   const handleChangeInput = (e) => {
-    setValueInput(e.target.value); // Băt buộc
+    const obj = {id: Math.random() , name: e.target.value}
+    setValueInput(obj); // Băt buộc
   };
 
   const handleCLickAddItem = () => {
@@ -25,7 +26,7 @@ export default function AddItem(props) {
         placeholder="Nhap ten item"
         onChange={handleChangeInput}
       />
-      <button onclick={handleCLickAddItem}>them item</button>
+      <button onClick={handleCLickAddItem}>them item</button>
     </div>
   );
 }
