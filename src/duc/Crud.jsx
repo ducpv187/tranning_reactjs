@@ -18,12 +18,9 @@ export default function Crud() {
   return (
     <div>
       <h1>CRUD</h1>
-      <AddItem />
-      <ListData
-        dataList={data}
-        setData={setData}
-        handleCLickAddValueItem={handleCLickAddValueItem}
-      />
+      <AddItem handleCLickAddValueItem={handleCLickAddValueItem} />
+
+      <ListData dataList={data} />
     </div>
   );
 }
