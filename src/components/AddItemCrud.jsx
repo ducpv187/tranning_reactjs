@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function CRUD() {
+export default function AddItemCrud() {
   const [data, setData] = useState([{ id: 1, name: "Mi`", price: 1000 }]);
 
   const [input, setInput] = useState("1a");

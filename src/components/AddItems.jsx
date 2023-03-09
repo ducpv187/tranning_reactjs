@@ -1,32 +1,41 @@
 import React, { useState } from 'react'
 
-export default function CrudSite() {
+export default function AddItems() {
   //create state cua mang data ban dau
   const [data, setData] = useState([]); 
   console.log(data); 
+  //create state cua mang khi ma changeInput
+  const [valueInput , setValueInput ] = useState();  
+  console.log(valueInput);
+
 
   const handleClickAddItem = () => {
-    setData((prevData) => [...prevData, valueInput]);
+    //check input co data -> render xuong duoi
+    // if(!valueInput){
+    //   return
+    // }
+    //setData((prevData) => [...prevData, valueInput]);
     // cai nay cua no se return ve mot mang ma so luong phan tu ko doi + update them value moi khi changeInput
+    if(valueInput) {
+      setData((data) => [...data, valueInput]);
+      //setValueInput("");
+    } 
   }
 
 
-  //create state cua mang khi ma changeInput
-  const [valueInput , setValueInput ] = useState();  
-   console.log(valueInput);
+
   const handleChangeValueInput = (e) => {
     setValueInput(e.target.value);  
     // const value = e.target.value
-    // console.log(e);
+    console.log(e);
     // console.log(value);    
   }
-
-
 
   return (
     <div style={{margin: "20px"}}>
       <div>
-        AddItems: <input type="text" onChange={handleChangeValueInput} /> <button onClick={handleClickAddItem}> ADD </button>
+        AddItems: 
+        <input value={valueInput} type="text" onChange={handleChangeValueInput} /> <button onClick={handleClickAddItem}> ADD </button>
       </div>
       <div>List Item</div>
       <div>
