@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 
-
-
 export default function AddItem(props) {
+  console.log(props);
   const [valueInput, setValueInput] = useState();
   console.log(valueInput);
   const handleChangeInput = (e) => {
-    setValueInput(e.target.value); // Băt buộc
+    const value = e.target.value; // chuỗi
+    const obj = { id: Math.random(), name: value };
+    setValueInput(obj); // Băt buộgic
   };
 
   const handleCLickAddItem = () => {
