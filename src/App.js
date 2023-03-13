@@ -9,6 +9,7 @@ import ListData from "./components/ListData";
 import CRUD from "./thang/CRUD";
 import AddItems from "./components/AddItems";
 import AddItemCrud from "./components/AddItemCrud";
+import Crud from "./duc/Crud";
 
 // them danh sach sinh vien
 function App() {
@@ -21,7 +22,8 @@ function App() {
       {/* <ListData /> */}
       {/* <AddItems />     */}
       {/* <AddItemCrud /> */}
-      <CRUD />
+      {/* <CRUD /> */}
+      <Crud />
     </div>
   );
 }

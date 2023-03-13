@@ -15,4 +15,4 @@ export const SectionEdit = ({ onChangeEdit, itemEdit, onClickEdit }) => {
       <button onClick={onClickEdit}> OK sửa</button>
     </div>
   );
-};
+}
