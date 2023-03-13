@@ -23,7 +23,7 @@ function App() {
       {/* <AddItems />     */}
       {/* <AddItemCrud /> */}
       {/* <CRUD /> */}
-      <Crud />
+      {/* <Crud /> */}
     </div>
   );
 }
