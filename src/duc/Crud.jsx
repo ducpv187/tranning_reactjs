@@ -7,6 +7,7 @@ export default function Crud() {
     { id: 1, name: "duc" },
     { id: 2, name: "thang" },
   ]);
+  console.log(data);
 
   const handleCLickAddValueItem = (value) => {
     console.log(value);
