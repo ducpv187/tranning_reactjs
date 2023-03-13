@@ -20,7 +20,7 @@ function App() {
       {/* <FormClick /> */}
       {/* <ListData /> */}
       {/* <AddItems />     */}
-      <AddItemCrud />
+      {/* <AddItemCrud /> */}
       <CRUD />
     </div>
   );
