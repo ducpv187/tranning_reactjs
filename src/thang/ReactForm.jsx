@@ -15,7 +15,7 @@ export default function ReactForm() {
 
   const watchName = watch("username");
   const watchGender = watch("gender");
-
+  //  console.log(watchName);
   const layGiaTriForm = (data) => {
     console.log(11111, data);
   };
