@@ -10,8 +10,9 @@ export default function Crud() {
   console.log(data);
 
   const handleCLickAddValueItem = (value) => {
-    console.log(value);
+    console.log("cha",value);
     setData((prevData) => {
+        // console.log(prevData);
       return [...prevData, value];
     });
   };

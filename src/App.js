@@ -10,6 +10,9 @@ import CRUD from "./thang/CRUD";
 import AddItems from "./components/AddItems";
 import AddItemCrud from "./components/AddItemCrud";
 import Crud from "./duc/Crud";
+import LayoutHF from "./thang/LayoutHF";
+import ChiTiet from "./thang/ChiTiet";
+import ReactForm from "./thang/ReactForm";
 
 // them danh sach sinh vien
 function App() {
@@ -23,7 +26,13 @@ function App() {
       {/* <AddItems />     */}
       {/* <AddItemCrud /> */}
       {/* <CRUD /> */}
-      <Crud />
+      {/* <Crud /> */}
+      {/* <LayoutHF>
+        <ChiTiet />
+      </LayoutHF> */}
+
+      {/* Xu li form :    - React hook form,  Formik, antd  */}
+      <ReactForm/>
     </div>
   );
 }
