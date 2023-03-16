@@ -15,6 +15,7 @@ export default function ReactForm() {
     resetField,
     reset,
   } = useForm();
+  //set deafault = tra DOc
   // resetField(); // tra ve gia tri default
   // reset({ username: "thang" , name :'hihi' });   // bản nâng cấp set nhiều value
 
