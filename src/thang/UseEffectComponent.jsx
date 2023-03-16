@@ -54,12 +54,34 @@ export default function UseEffectComponent() {
   //   useEffect(() => {
   //     return console.log(1);
   //   }, []);
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    //call api
+    const getData = () => {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((res) => res.json())
+        .then((json) => {
+          setData(json);
+          // console.log({ json });
+        });
+    };
+    getData();
+  }, []);
   return (
     <div>
       <h1>UseEffectComponent</h1>
       <div>count : {count}</div>
       <button onClick={() => setCount((pre) => pre + 1)}>Tang count</button>
       {count === 2 && <Phu />}
+
+      <div>Mang data</div>
+      {data.map((item) => (
+        <div style={{ background: "red", marginBottom: "20px" }}>
+          <div>{item?.name}</div>
+          <div>{item?.email}</div>
+        </div>
+      ))}
     </div>
   );
 }
