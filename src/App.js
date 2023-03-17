@@ -13,6 +13,8 @@ import Crud from "./duc/Crud";
 import LayoutHF from "./thang/LayoutHF";
 import ChiTiet from "./thang/ChiTiet";
 import ReactForm from "./thang/ReactForm";
+import RefComponent from "./thang/RefComponent";
+import UseEffectComponent from "./thang/UseEffectComponent";
 
 // them danh sach sinh vien
 function App() {
@@ -32,7 +34,11 @@ function App() {
       </LayoutHF> */}
 
       {/* Xu li form :    - React hook form,  Formik, antd  */}
-      <ReactForm/>
+      {/* <ReactForm/> */}
+
+      {/* <RefComponent /> */}
+
+      <UseEffectComponent />
     </div>
   );
 }
