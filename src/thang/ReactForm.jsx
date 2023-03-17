@@ -11,7 +11,7 @@ export default function ReactForm() {
     setError,
   } = useForm();
   console.log(222222, errors);
-  //   console.log(watch("username")); // watch input value by passing the name of it
+    console.log(watch("username")); // watch input value by passing the name of it
 
   const watchName = watch("username");
   const watchGender = watch("gender");
