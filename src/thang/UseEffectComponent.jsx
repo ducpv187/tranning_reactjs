@@ -1,4 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
 
 const Phu = () => {
   const [count, setCount] = useState(1);
@@ -56,6 +62,7 @@ export default function UseEffectComponent() {
   //   }, []);
 
   const [data, setData] = useState([]);
+  const [fakeData, setFakeData] = useState(1);
   useEffect(() => {
     //call api
     const getData = () => {
@@ -68,11 +75,27 @@ export default function UseEffectComponent() {
     };
     getData();
   }, []);
+
+  const tinhtong2so = useCallback((a, b) => {
+    return a + b;
+  }, []);
+
+  const duc = useMemo(() => {
+    return count + 5;
+  }, [count]);
+
+  const handleOnClick = () => {
+    setCount((pre) => pre + 1);
+  };
+  // view
   return (
     <div>
+      <div>Fake data : {fakeData}</div>
+      <div>tong 2 so 5,6 la : {tinhtong2so(5, 6)}</div>
+      <div>Gia tri duc : {duc}</div>
       <h1>UseEffectComponent</h1>
       <div>count : {count}</div>
-      <button onClick={() => setCount((pre) => pre + 1)}>Tang count</button>
+      <button onClick={handleOnClick}>Tang count</button>
       {count === 2 && <Phu />}
 
       <div>Mang data</div>
