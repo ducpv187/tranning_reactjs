@@ -6,7 +6,13 @@ export const DataContext = React.createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [data, setData] = useState([{ id: 1, name: 'thang' }]);
-  return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
+
+  const logData = () => {
+    console.log(data);
+  };
+
+  const obj = { data: data, functionLog: logData };
+  return <DataContext.Provider value={obj}>{children}</DataContext.Provider>;
 };
 
 const ListData = () => {
