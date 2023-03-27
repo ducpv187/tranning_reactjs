@@ -16,6 +16,7 @@ import ReactForm from './thang/ReactForm';
 import RefComponent from './thang/RefComponent';
 import UseEffectComponent from './thang/UseEffectComponent';
 import AppContext from './thang/context/AppContext';
+import AppReducer from './thang/context/AppReducer';
 
 // them danh sach sinh vien
 function App() {
@@ -41,7 +42,8 @@ function App() {
 
       {/* <UseEffectComponent /> */}
 
-      <AppContext />
+      {/* <AppContext /> */}
+      <AppReducer />
     </div>
   );
 }
