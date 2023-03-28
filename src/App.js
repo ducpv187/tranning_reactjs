@@ -17,6 +17,7 @@ import RefComponent from './thang/RefComponent';
 import UseEffectComponent from './thang/UseEffectComponent';
 import AppContext from './thang/context/AppContext';
 import ApiData from './thang/api_data/ApiData';
+import AppReducer from './thang/context/AppReducer';
 
 // them danh sach sinh vien
 function App() {
@@ -43,6 +44,8 @@ function App() {
       {/* <UseEffectComponent /> */}
 
       {/* <AppContext /> */}
+
+      {/* <AppReducer /> */}
 
       <ApiData />
     </div>
