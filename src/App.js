@@ -34,11 +34,11 @@ function App() {
       </LayoutHF> */}
 
       {/* Xu li form :    - React hook form,  Formik, antd  */}
-      {/* <ReactForm/> */}
+      <ReactForm/>
 
       {/* <RefComponent /> */}
 
-      <UseEffectComponent />
+      {/* <UseEffectComponent /> */}
     </div>
   );
 }

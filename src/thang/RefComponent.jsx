@@ -6,20 +6,30 @@ export default function RefComponent() {
   const statusRef = useRef(true); // statusRef.current = true
   //   console.log(inputRef.current);
   const focusInput = () => {
-    // // document.querySelector(".input").focus();
+
+    //c1: cach tuong tac DOM truyen thong
+    // document.querySelector(".input").focus();
     // console.log(inputRef?.current?.value);
-    console.log(1);
+    //console.log(1);
 
-    statusRef.current = false;
+    // statusRef.current = false;
 
-    if (statusRef.current === true) {
-      console.log(2);
+    // if (statusRef.current === true) {
+    //   console.log(2);
+    // }
+
+    //c2: cach dung voi useRef
+    if(inputRef.current){
+     inputRef.current.focus(); 
     }
   };
 
   const h1Ref = useRef();
+  console.log( h1Ref);
+
   const onClickGetHeight = () => {
     if (h1Ref.current) {
+      console.log(h1Ref.current);
       const h1 = h1Ref.current.offsetHeight;
       console.log(h1);
     }
