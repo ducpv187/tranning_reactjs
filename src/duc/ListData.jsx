@@ -1,7 +1,7 @@
 import React from 'react'
 //  const arrData = [{id:1 , name: 'duc'}, { id:2 , name: 'thang'}];
 export default function ListData(props) {
-    console.log(props.dataList);
+    // console.log(props.dataList);
     
   return (
     <div className="listdataList" >

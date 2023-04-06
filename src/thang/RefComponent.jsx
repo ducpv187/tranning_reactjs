@@ -27,7 +27,7 @@ export default function RefComponent() {
   const h1Ref = useRef();
   console.log( h1Ref);
 
-  const onClickGetHeight = () => {
+  const onClickGetHeight = () => { 
     if (h1Ref.current) {
       console.log(h1Ref.current);
       const h1 = h1Ref.current.offsetHeight;

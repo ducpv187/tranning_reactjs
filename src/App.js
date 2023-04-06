@@ -37,7 +37,7 @@ function App() {
       </LayoutHF> */}
 
       {/* Xu li form :    - React hook form,  Formik, antd  */}
-      <ReactForm/>
+      {/* <ReactForm/> */}
 
       {/* <RefComponent /> */}
 
@@ -47,7 +47,7 @@ function App() {
 
       {/* <AppReducer /> */}
 
-      <ApiData />
+      {/* <ApiData /> */}
     </div>
   );
 }

@@ -2,6 +2,8 @@ import React, { useReducer } from 'react'
 
 function reducer(state, action) {
     // const { type, payload } = action;
+    console.log(state);
+    console.log(action);
     switch (action.type) {
         case 'tang_count_ho_cai':
             return { ...state, count: state.count + 1 }

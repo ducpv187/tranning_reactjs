@@ -38,6 +38,20 @@ function promise1() {
     }
   });
 }
+  //  const x = new Promise((resolve, reject) => {
+  //   let condition = true ;
+  //     if(condition){
+  //       resolve('thanh cong');
+  //     }
+  //     else {
+  //       reject('that bai');
+  //     }
+  //  })  
+  //  x.then((data) => {
+  //   return console.log(data);
+  //  } ).catch((err) => {
+  //   return console.log(err);
+  //  })
 // promise1();
 // -> 3 trang thais:  pending, fulfilled , rejected
 
@@ -69,6 +83,7 @@ setup3();
 async function setup5() {
   return 5;
 }
+
 //cach 1:
 await setup5().then((result) => console.log(result));
 
