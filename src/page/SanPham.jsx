@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { API_FAKE } from './apiFake';
 import { useEffect } from 'react';
+import { API_FAKE } from '../thang/api_data/apiFake';
 
-export default function ApiData() {
+export default function SanPham() {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function run() {
@@ -34,13 +34,17 @@ export default function ApiData() {
   };
   return (
     <div>
-      <h1>ApiData</h1>
+      <h1>San pham</h1>
 
       <div>
         <ul>
           {data.map((item) => (
             <li
-              style={{ background: '#888888', marginBottom: '20px' }}
+              style={{
+                background: '#888888',
+                marginBottom: '20px',
+                cursor: 'pointer',
+              }}
               key={item.id}
             >
               <div>id: {item.id}</div>
