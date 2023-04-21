@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import { API_FAKE } from './apiFake';
 import { useEffect } from 'react';
+import axios from "axios";
 
 export default function ApiData() {
   const [data, setData] = useState([]);
-  useEffect(() => {
-    async function run() {
-      const result = await fetch(API_FAKE);
-      const data = await result.json();
-      setData(data);
-    }
-    run();
+  // useEffect(() => {
+  //   async function run() {
+  //     const result = await fetch(API_FAKE);
+  //     const data = await result.json();
+  //     setData(data);
+  //   }
+  //   run();
+  // }, []);
+
+  React.useEffect(() => {
+    axios.get(API_FAKE).then((response) => {
+      console.log(response.data);
+    });
   }, []);
 
-  console.log({ data });
+  // console.log({ data });
 
   const onRemoveItem = (itemClick) => {
     // const newData = data.filter((data) => data.id !== itemClick.id);

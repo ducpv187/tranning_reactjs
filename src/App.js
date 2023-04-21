@@ -48,7 +48,7 @@ function App() {
 
       {/* <AppReducer /> */}
 
-      {/* <ApiData /> */}
+      <ApiData />
 
       <RouteApp />
     </div>
