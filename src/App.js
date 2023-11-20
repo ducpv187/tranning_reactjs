@@ -19,6 +19,7 @@ import AppContext from './thang/context/AppContext';
 import ApiData from './thang/api_data/ApiData';
 import AppReducer from './thang/context/AppReducer';
 import RouteApp from './common/RouteApp';
+import CopyBoard from './duc/CopyBoard';
 
 // them danh sach sinh vien
 function App() {
@@ -48,9 +49,11 @@ function App() {
 
       {/* <AppReducer /> */}
 
-      <ApiData />
+      {/* <ApiData /> */}
 
-      <RouteApp />
+      {/* <RouteApp /> */}
+      <CopyBoard/>
+
     </div>
   );
 }
