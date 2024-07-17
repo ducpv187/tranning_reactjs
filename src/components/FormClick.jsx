@@ -42,19 +42,19 @@ export default function FormClick() {
     // const menu = menu.filter((m) => m.id !== itemClick?.id); //  1 -2
     return (
         <div style={{ display: "flex", margin: "20px" }}>
-        {menu?.map((dataItem) => (          
-            <div
-            onClick={() => onClickItem(dataItem)}
-            key={dataItem?.id}
-            style={{
-                margin: "10px",
-                background: itemClick?.id === dataItem.id ? "blue" : "red",
-            }}
-            >
-            {dataItem.name}
-            </div>
-        ))}
-        {listContent.find((d) => d.id === itemClick?.id)?.content}
+            {menu?.map((dataItem) => (          
+                <div
+                onClick={() => onClickItem(dataItem)}
+                key={dataItem?.id}
+                style={{
+                    margin: "10px",
+                    background: itemClick?.id === dataItem.id ? "blue" : "red",
+                }}
+                >
+                {dataItem.name}
+                </div>
+            ))}
+            {listContent.find((d) => d.id === itemClick?.id)?.content}
         </div>
     )
 }

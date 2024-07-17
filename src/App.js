@@ -32,7 +32,7 @@ function App() {
       {/* <ListData /> */}
       {/* <AddItems />     */}
       {/* <AddItemCrud /> */}
-      {/* <CRUD /> */}
+      <CRUD />
       {/* <Crud /> */}
       {/* <LayoutHF>
         <ChiTiet />
@@ -52,7 +52,7 @@ function App() {
       {/* <ApiData /> */}
 
       {/* <RouteApp /> */}
-      <CopyBoard/>
+      {/* <CopyBoard/> */}
 
     </div>
   );
