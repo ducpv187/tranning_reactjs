@@ -1,10 +1,11 @@
 export const ListData = ({ data, onClickEdit, onClickDelete }) => {
+  console.log(data);
   return (
     <div>
       {data.map((item) => (
         <div
           key={item.id}
-          style={{ background: "orange", marginBottom: "20px" }}
+          style={{ marginBottom: "20px" }}
         >
           <div>gia tien : {item.price}</div>
           <div>Ten sp : {item.name}</div>

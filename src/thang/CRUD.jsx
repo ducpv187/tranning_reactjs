@@ -16,7 +16,7 @@ export default function CRUD() {
   const [data, setData] = useState(getDataServerOrLocal() || []);
 
   const [input, setInput] = useState("");
-  console.log(input);
+  // console.log(input);
   // thêm 1 object khi click :  {id: random ,   name: Nhập  ,  price: random}
   const onClickItem = () => {
     if (!input) {
@@ -40,7 +40,7 @@ export default function CRUD() {
     setItemEdit(dataItem);
     // call api xoa id    fetch('./api/product/${dataItem.id})
   };
-  console.log(itemEdit);
+  // console.log(itemEdit);
 
   // o input
   const [inputEdit, setInputEdit] = useState({});
@@ -99,13 +99,14 @@ export default function CRUD() {
     setLocalStorageData(newData);
   };
 
-  console.log("inputEdit", inputEdit);
+  // console.log("inputEdit", inputEdit);
   return (
     <div>
       <div>
         <div>Nhap ten muon them</div>
         <div>
-          <input value={input} onChange={(e) => setInput(e.target.value)} />
+          <input value={input} onChange={(e) => setInput(e.target.value)} 
+             />
           <button onClick={onClickItem}> Enter them</button>
         </div>
         <h3>List data</h3>
